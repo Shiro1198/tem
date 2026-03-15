@@ -1,0 +1,86 @@
+---
+// Header コンポーネント - 全ページ共通のヘッダー・ナビゲーション
+// Props で現在のページを受け取り、ナビのハイライトに使う
+interface Props {
+  currentPage?: string;
+}
+const { currentPage = '' } = Astro.props;
+
+// ナビゲーション項目の定義
+const navItems = [
+  { href: 'https://www.niigatanishi-dc.jp/', label: 'ホーム', external: true },
+  { href: '/tem/about/', label: '矯正歯科について', slug: 'about' },
+  { href: '/tem/orthodoctor/', label: '矯正担当', slug: 'orthodoctor' },
+  { href: '/tem/flow/', label: '治療の流れ', slug: 'flow' },
+  { href: '/tem/adult/', label: '大人の矯正', slug: 'adult' },
+  { href: '/tem/children/', label: '子どもの矯正', slug: 'children' },
+  { href: '/tem/price/', label: '費用案内', slug: 'price' },
+  { href: '/tem/access/', label: 'アクセス', slug: 'access' },
+];
+---
+
+<header>
+  <div class="bg-1">
+    <div class="box">
+      <h1>子供の矯正・大人の矯正｜矯正歯科｜新潟西歯科クリニック</h1>
+    </div>
+  </div>
+  <div class="flex-sb-center">
+    <div class="flex-center-center col-xl-7">
+      <a href="/tem/" class="col-10 center">
+        <img
+          src="/tem/images/nishilogo.png"
+          srcset="/tem/images/nishilogo.png 1x, /tem/images/nishilogo@2x.png 2x"
+          width="470"
+          height="114"
+          alt="新潟西歯科クリニック"
+          loading="lazy"
+        />
+      </a>
+      <div class="sp-menu _sp-menu col-2 md">
+        <span class="bar-1"></span>
+        <span class="bar-2"></span>
+        <span class="bar-3"></span>
+      </div>
+    </div>
+    <div class="relative md">
+      <nav class="sm-nav">
+        <ul class="menu-ul">
+          {navItems.map((item) => (
+            <li class={`menu-item ${currentPage === item.slug ? 'current-menu-item' : ''}`}>
+              <a href={item.href} target={item.external ? '_blank' : undefined}>
+                <span class="menu-span">{item.label}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+    <ul class="header-buttons flex-center-center mb-10 col-xl-5">
+      <li class="p-4">
+        <a href="https://www.niigatanishi-dc.jp/" target="_blank" class="button-1">
+          <i class="fas fa-home"></i>新潟西歯科クリニックサイト
+        </a>
+      </li>
+      <li class="p-4">
+        <a href="https://www.niigatanishi-dc.jp/contact/" target="_blank" class="button-1">
+          <i class="fas fa-mobile-alt"></i>ご予約・お問い合わせ
+        </a>
+      </li>
+    </ul>
+  </div>
+  <!-- SP用ナビ -->
+  <div class="hide-md">
+    <nav>
+      <ul class="menu-ul">
+        {navItems.map((item) => (
+          <li class={`menu-item ${currentPage === item.slug ? 'current-menu-item' : ''}`}>
+            <a href={item.href} target={item.external ? '_blank' : undefined}>
+              <span class="menu-span">{item.label}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>

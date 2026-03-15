@@ -1,0 +1,66 @@
+---
+// BaseLayout - 全ページで共有するレイアウト
+// 各ページから title と currentPage を受け取る
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// --- フロントマターで Props（外から渡されるデータ）を定義 ---
+interface Props {
+  title: string;           // ページタイトル（<title>タグ用）
+  description?: string;    // メタディスクリプション
+  currentPage?: string;    // 現在のページスラッグ（ナビのハイライト用）
+  isTop?: boolean;         // トップページかどうか（<main class="top"> の切り替え用）
+}
+
+const {
+  title,
+  description = '新潟西歯科クリニック矯正歯科',
+  currentPage = '',
+  isTop = false,
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, user-scalable=yes" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>{title} | 新潟西歯科クリニック</title>
+  <meta name="description" content={description} />
+
+  <!-- ファビコン -->
+  <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/tem/favicons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/tem/favicons/apple-touch-icon-180x180.png" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/tem/fontawesome/css/all.css" />
+
+  <!-- サイトCSS -->
+  <link rel="stylesheet" href="/tem/fontawesome/css/all.css" />
+
+  <!-- Astro が自動で CSS を読み込む（下記の import 文で） -->
+</head>
+<body>
+  <Header currentPage={currentPage} />
+
+  <main class={isTop ? 'top' : ''}>
+    <!-- ここに各ページの中身が入る（slot = WordPressの the_content()） -->
+    <slot />
+  </main>
+
+  <Footer />
+
+  <!-- スクリプト -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+</body>
+</html>
+
+<!-- CSS のインポート（Astro が自動でバンドルしてくれる） -->
+<style is:global>
+  @import '../styles/style.css';
+  @import '../styles/uw-slider.css';
+</style>

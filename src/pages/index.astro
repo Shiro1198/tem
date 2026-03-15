@@ -1,0 +1,236 @@
+---
+// トップページ
+// BaseLayout を import して、その中にコンテンツを入れる
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<!-- レイアウトで囲む。Props として title, isTop を渡す -->
+<BaseLayout title="矯正歯科" isTop={true}>
+
+  <!-- セクション1: メインビジュアルスライダー -->
+  <section>
+    <div class="main-img-bg">
+      <div class="box relative">
+        <div class="uw-slider-container">
+          <ul class="uw-slider" data-fade="1" data-slides="1" data-move="1" data-autoplay="1" data-h_rate="0.420168">
+            <li><img src="/tem/images/main_02.jpg" srcset="/tem/images/main_02.jpg 1x, /tem/images/main_02@2x.jpg 2x" alt="メインビジュアル" loading="eager" /></li>
+            <li><img src="/tem/images/mv_pc.jpg" srcset="/tem/images/mv_pc.jpg 1x, /tem/images/mv_pc@2x.jpg 2x" alt="メインビジュアル" loading="eager" /></li>
+          </ul>
+        </div>
+        <div class="message">
+          新潟西歯科クリニックでは、<br class="hide-sm" />
+          <span class="bb-1">患者様にとって<span class="color-1">居心地がよく、<br class="hide-sm" />
+          楽しく気軽に通っていただける</span>歯科医院</span><br class="hide-sm" />
+          を目指しています。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- セクション2: 院長挨拶 -->
+  <section>
+    <div class="box p-30-0">
+      <div class="flex">
+        <div class="col-md-8 p-10">
+          <div class="bg-2 p-20">
+            <p>この度、新潟市西区新通で新潟西歯科クリニックを開院させていただきました、医療法人社団D＆J理事長の平野大輔と申します。</p>
+            <br />
+            <p>当院は、皆様の大切な歯を一生守るため、「通いやすい歯科医院」を目指しています。</p>
+            <p>・通いやすい立地(バイパスから3分) ・大きな駐車場 ・待ち時間が少ないご予約制 ・お会計待ちが少なくなるように自動精算機の設置 ・専門分野に特化した歯科医師による治療 など、あらゆる面で皆様にご満足していただけるよう努めてまいります。</p>
+          </div>
+        </div>
+        <div class="col-md-4 p-10">
+          <ul>
+            <li class="p-10"><a href="https://www.niigatanishi-dc.jp/contact/" target="_blank" class="button-1 col-12"><i class="far fa-envelope"></i>お問い合わせはこちら</a></li>
+            <li class="p-10"><a href="https://www.niigatanishi-dc.jp/contact/" target="_blank" class="button-1 col-12"><i class="fas fa-mobile-alt"></i>矯正のご予約はこちら</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- セクション3: 気になる部分チェックリスト -->
+  <section>
+    <div class="box p-30-10">
+      <div class="bg-3 flex">
+        <div class="col-md-6 p-20">
+          <div class="heading-2 mb-30">矯正治療で気になる部分はございませんか？</div>
+          <ul class="flex">
+            <li class="col-sm-6 p-6">
+              <a href="/tem/children/" class="button-2"><i class="fa fa-check-square" aria-hidden="true"></i> お子様の歯並び</a>
+            </li>
+            <li class="col-sm-6 p-6">
+              <a href="/tem/flow/" class="button-2"><i class="fa fa-check-square" aria-hidden="true"></i> 矯正治療の流れ</a>
+            </li>
+            <li class="col-sm-6 p-6">
+              <a href="/tem/bracketindex/" class="button-2"><i class="fa fa-check-square" aria-hidden="true"></i> 矯正装置</a>
+            </li>
+            <li class="col-sm-6 p-6">
+              <a href="/tem/adult/" class="button-2"><i class="fa fa-check-square" aria-hidden="true"></i> 大人の矯正治療</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- セクション4: 矯正歯科について -->
+  <section>
+    <div class="box p-30-0">
+      <div class="flex-start-end mb-30">
+        <div class="col-md-4 p-4">
+          <h2 class="heading-1">Orthodontic<br />Treatment</h2>
+        </div>
+        <div class="col-md-4 p-4">
+          <div class="heading-2"><h2>矯正歯科について</h2></div>
+        </div>
+      </div>
+      <div class="flex">
+        <div class="col-md-4 p-10">
+          <figure>
+            <a href="/tem/about/"><img src="/tem/images/img1.jpg" alt="矯正歯科について" loading="lazy" /></a>
+            <figcaption><a href="/tem/about/" class="font-1">矯正について詳しく</a></figcaption>
+          </figure>
+        </div>
+        <div class="col-md-4 p-10">
+          <figure>
+            <a href="/tem/flow/"><img src="/tem/images/img1-1.jpg" alt="矯正治療の流れ" loading="lazy" /></a>
+            <figcaption><a href="/tem/flow/" class="font-1">矯正治療の流れ</a></figcaption>
+          </figure>
+        </div>
+        <div class="col-md-4 p-10">
+          <ul class="mb-20">
+            <li class="p-6"><a href="/tem/susumeru/" class="button-3">矯正歯科を薦める理由</a></li>
+            <li class="p-6"><a href="/tem/kamiawase/" class="button-3">歯並び・かみ合わせの大切さ</a></li>
+            <li class="p-6"><a href="/tem/waruihanarabi/" class="button-3">悪い歯並びで起こること</a></li>
+            <li class="p-6"><a href="/tem/bracketindex/" class="button-3">選べる矯正装置</a></li>
+          </ul>
+          <div class="links">
+            <div class="center mb-10 font-ll">関連ページ</div>
+            <ul class="flex">
+              <li class="col-lg-6 p-4"><a href="/tem/price/"><i class="fa fa-caret-right" aria-hidden="true"></i>矯正治療の費用</a></li>
+              <li class="col-lg-6 p-4"><a href="/tem/flow/"><i class="fa fa-caret-right" aria-hidden="true"></i>矯正治療の流れ</a></li>
+              <li class="col-lg-6 p-4"><a href="https://www.niigatanishi-dc.jp/" target="_blank"><i class="fa fa-caret-right" aria-hidden="true"></i>当院のご案内</a></li>
+              <li class="col-lg-6 p-4"><a href="/tem/orthodoctor/"><i class="fa fa-caret-right" aria-hidden="true"></i>矯正歯科担当</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- セクション5: 大人の矯正歯科 -->
+  <section>
+    <div class="box p-30-0">
+      <div class="flex-start-end mb-30">
+        <div class="col-md-4 p-4">
+          <h2 class="heading-1">Orthodontic Treatment<br /> for Adult</h2>
+        </div>
+        <div class="col-md-4 p-4">
+          <div class="heading-2"><h2>大人の矯正歯科</h2></div>
+        </div>
+      </div>
+      <div class="flex">
+        <div class="col-md-4 p-10">
+          <figure>
+            <a href="/tem/adult/"><img src="/tem/images/img2-1.jpg" alt="大人の矯正" loading="lazy" /></a>
+            <figcaption><a href="/tem/adult/" class="font-1">大人の矯正について</a></figcaption>
+          </figure>
+        </div>
+        <div class="col-md-4 p-10">
+          <ul class="mb-20">
+            <li class="p-6"><a href="/tem/adult/#adult-2" class="button-3">マルチブラケット装置の種類</a></li>
+            <li class="p-6"><a href="/tem/adult/#adult-2" class="button-3">個人に合わせたブラケットの位置付け</a></li>
+            <li class="p-6"><a href="/tem/adult/#adult-2" class="button-3">マウスピース矯正</a></li>
+            <li class="p-6"><a href="/tem/adult/#adult-2" class="button-3">インプラント矯正</a></li>
+          </ul>
+          <div class="links">
+            <div class="center mb-10 font-ll">関連ページ</div>
+            <ul class="flex">
+              <li class="col-lg-6 p-4"><a href="/tem/price/"><i class="fa fa-caret-right" aria-hidden="true"></i>矯正治療の費用</a></li>
+              <li class="col-lg-6 p-4"><a href="/tem/flow/"><i class="fa fa-caret-right" aria-hidden="true"></i>矯正治療の流れ</a></li>
+              <li class="col-lg-6 p-4"><a href="https://www.niigatanishi-dc.jp/" target="_blank"><i class="fa fa-caret-right" aria-hidden="true"></i>当院のご案内</a></li>
+              <li class="col-lg-6 p-4"><a href="/tem/orthodoctor/"><i class="fa fa-caret-right" aria-hidden="true"></i>矯正歯科担当</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4 p-10">
+          <figure>
+            <a href="/tem/adult/"><img src="/tem/images/img2-2.jpg" alt="大人の矯正" loading="lazy" /></a>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- セクション6: 子供の矯正歯科 -->
+  <section>
+    <div class="box p-30-0">
+      <div class="flex-start-end mb-30">
+        <div class="col-md-4 p-4">
+          <h2 class="heading-1">Orthodontic Treatment<br /> for Children</h2>
+        </div>
+        <div class="col-md-4 p-4">
+          <div class="heading-2"><h2>子供の矯正歯科</h2></div>
+        </div>
+      </div>
+      <div class="flex">
+        <div class="col-md-4 p-10">
+          <figure>
+            <a href="/tem/children/"><img src="/tem/images/img3-1.jpg" alt="子供の矯正" loading="lazy" /></a>
+            <figcaption><a href="/tem/children/" class="font-1">子供の矯正について</a></figcaption>
+          </figure>
+        </div>
+        <div class="col-md-4 p-10">
+          <figure>
+            <a href="/tem/children/"><img src="/tem/images/img3-2.jpg" alt="子供の矯正" loading="lazy" /></a>
+          </figure>
+        </div>
+        <div class="col-md-4 p-10">
+          <ul class="mb-20">
+            <li class="p-6"><a href="/tem/children/#children-1" class="button-3">子どもの矯正を始める時期は?</a></li>
+            <li class="p-6"><a href="/tem/children/#children-1" class="button-3">でこぼこはどうしてできるの？</a></li>
+            <li class="p-6"><a href="/tem/children/#children-1" class="button-3">前歯の出っ張りはどうしてなるの？</a></li>
+            <li class="p-6"><a href="/tem/children/#children-5" class="button-3">小児矯正で使用する装置</a></li>
+          </ul>
+          <div class="links">
+            <div class="center mb-10 font-ll">関連ページ</div>
+            <ul class="flex">
+              <li class="col-lg-6 p-4"><a href="/tem/price/"><i class="fa fa-caret-right" aria-hidden="true"></i>矯正治療の費用</a></li>
+              <li class="col-lg-6 p-4"><a href="/tem/flow/"><i class="fa fa-caret-right" aria-hidden="true"></i>矯正治療の流れ</a></li>
+              <li class="col-lg-6 p-4"><a href="https://www.niigatanishi-dc.jp/" target="_blank"><i class="fa fa-caret-right" aria-hidden="true"></i>当院のご案内</a></li>
+              <li class="col-lg-6 p-4"><a href="/tem/orthodoctor/"><i class="fa fa-caret-right" aria-hidden="true"></i>矯正歯科担当</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- セクション7: 無限ループスライダー -->
+  <section>
+    <div class="loop_css2">
+      <ul>
+        <li><img src="/tem/images/slide_01.jpg" alt="" loading="lazy" /></li>
+        <li><img src="/tem/images/slide_02.jpg" alt="" loading="lazy" /></li>
+        <li><img src="/tem/images/slide_03.jpg" alt="" loading="lazy" /></li>
+        <li><img src="/tem/images/slide_04.jpg" alt="" loading="lazy" /></li>
+        <li><img src="/tem/images/slide_05.jpg" alt="" loading="lazy" /></li>
+        <li><img src="/tem/images/slide_06.jpg" alt="" loading="lazy" /></li>
+        <li><img src="/tem/images/slide_07.jpg" alt="" loading="lazy" /></li>
+        <li><img src="/tem/images/slide_08.jpg" alt="" loading="lazy" /></li>
+      </ul>
+      <ul>
+        <li><img src="/tem/images/slide_01.jpg" alt="" loading="lazy" /></li>
+        <li><img src="/tem/images/slide_02.jpg" alt="" loading="lazy" /></li>
+        <li><img src="/tem/images/slide_03.jpg" alt="" loading="lazy" /></li>
+        <li><img src="/tem/images/slide_04.jpg" alt="" loading="lazy" /></li>
+        <li><img src="/tem/images/slide_05.jpg" alt="" loading="lazy" /></li>
+        <li><img src="/tem/images/slide_06.jpg" alt="" loading="lazy" /></li>
+        <li><img src="/tem/images/slide_07.jpg" alt="" loading="lazy" /></li>
+        <li><img src="/tem/images/slide_08.jpg" alt="" loading="lazy" /></li>
+      </ul>
+    </div>
+  </section>
+
+</BaseLayout>
