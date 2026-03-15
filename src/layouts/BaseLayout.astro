@@ -28,6 +28,7 @@ const {
   <meta name="format-detection" content="telephone=no" />
   <title>{title} | 新潟西歯科クリニック</title>
   <meta name="description" content={description} />
+  <meta name="robots" content="noindex, nofollow" />
 
   <!-- ファビコン -->
   <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/tem/favicons/favicon.ico" />
@@ -53,6 +54,40 @@ const {
   </main>
 
   <Footer />
+
+  <!-- パスワードゲート -->
+  <div id="auth-gate" style="display:none; position:fixed; inset:0; z-index:99999; background:#fff; justify-content:center; align-items:center; flex-direction:column;">
+    <div style="text-align:center; font-family:'Kosugi Maru',sans-serif;">
+      <h2 style="margin-bottom:20px; font-size:18px;">このサイトはパスワードで保護されています</h2>
+      <input id="auth-pass" type="password" placeholder="パスワードを入力" style="padding:10px 16px; font-size:16px; border:1px solid #ccc; border-radius:4px; width:250px;" />
+      <button id="auth-btn" style="padding:10px 20px; font-size:16px; background:#8ab32d; color:#fff; border:none; border-radius:4px; cursor:pointer; margin-left:8px;">OK</button>
+      <p id="auth-error" style="color:red; margin-top:10px; display:none;">パスワードが違います</p>
+    </div>
+  </div>
+
+  <script is:inline>
+    (function() {
+      var PASS = 'demo';
+      if (sessionStorage.getItem('auth') === PASS) return;
+      var gate = document.getElementById('auth-gate');
+      gate.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      var btn = document.getElementById('auth-btn');
+      var input = document.getElementById('auth-pass');
+      var error = document.getElementById('auth-error');
+      function check() {
+        if (input.value === PASS) {
+          sessionStorage.setItem('auth', PASS);
+          gate.style.display = 'none';
+          document.body.style.overflow = '';
+        } else {
+          error.style.display = 'block';
+        }
+      }
+      btn.addEventListener('click', check);
+      input.addEventListener('keydown', function(e) { if (e.key === 'Enter') check(); });
+    })();
+  </script>
 
   <!-- スクリプト -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
